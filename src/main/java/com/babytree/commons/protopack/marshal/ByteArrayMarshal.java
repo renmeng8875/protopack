@@ -35,4 +35,9 @@ public class ByteArrayMarshal implements Marshallable {
             data[i] = unpack.popByte();
         }
     }
+
+    @Override
+    public Object getData() {
+        return data;
+    }
 }

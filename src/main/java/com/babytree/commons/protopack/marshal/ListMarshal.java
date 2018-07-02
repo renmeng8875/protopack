@@ -35,4 +35,8 @@ public class ListMarshal<T> implements Marshallable {
 		return list.toString();
 	}
 
+    @Override
+    public Object getData() {
+        return list;
+    }
 }

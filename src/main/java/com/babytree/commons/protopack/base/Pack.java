@@ -334,4 +334,8 @@ public class Pack
 		return buffer.toString() + " Size " + size() + " and binary bits : " + sb.toString();
 	}
 
+	public byte[] getBytes(){
+	    return  buffer.array();
+    }
+
 }

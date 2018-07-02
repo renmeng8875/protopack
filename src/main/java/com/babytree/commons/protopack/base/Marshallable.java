@@ -8,7 +8,11 @@ package com.babytree.commons.protopack.base;
  **/
 public interface Marshallable
 {
-	public abstract void marshal(Pack pack);
+    void marshal(Pack pack);
 	
-	public abstract void unmarshal(Unpack unpack);
+    void unmarshal(Unpack unpack);
+
+    Object getData();
+
+
 }

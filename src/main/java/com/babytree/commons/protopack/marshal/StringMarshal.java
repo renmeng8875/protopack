@@ -63,5 +63,10 @@ public class StringMarshal implements Marshallable
 		}
 		return true;
 	}
+
+    @Override
+    public Object getData() {
+        return data;
+    }
 }
 

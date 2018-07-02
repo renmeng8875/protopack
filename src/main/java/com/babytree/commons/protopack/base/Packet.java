@@ -165,9 +165,11 @@ public class Packet implements Marshallable{
 	@Override
 	public String toString() {
 		String str = super.toString()+ " packet header:" + header + " contents:" + contents;
-		/*Pack p = new Pack();
-		this.marshal(p);
-		str += " packet buffer : " + p.toString();*/
 		return str;
 	}
+
+    @Override
+    public Object getData() {
+        return null;
+    }
 }

@@ -39,4 +39,8 @@ public class MapMarshal<T, K> implements Marshallable {
 		return data.toString();
 	}
 
+    @Override
+    public Object getData() {
+        return data ;
+    }
 }

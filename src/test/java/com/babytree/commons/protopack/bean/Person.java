@@ -1,11 +1,8 @@
-package com.babytree.commons.protopack;
+package com.babytree.commons.protopack.bean;
 
 
-public class InnerBean{
-    public InnerBean(){
-
-    }
-
+public class Person {
+    public Person(){}
 
     private String name;
 

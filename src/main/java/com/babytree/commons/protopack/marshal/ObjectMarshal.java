@@ -30,10 +30,17 @@ public class ObjectMarshal extends BeanMarshal {
 		marshalObject(pack, this.obj);
 	}
 
-	@Override
+    @Override
 	public void unmarshal(Unpack unpack) {
 		unmarshalObject(unpack, this.obj);
 	}
+
+    @Override
+    public Object getData() {
+        return obj;
+    }
+
+
 
 
 }

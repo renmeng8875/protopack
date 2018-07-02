@@ -97,14 +97,18 @@ public class Uint extends Number implements Comparable<Uint>
 	}
 	
 	public static void main(String[] args) {
-//		String s = Integer.toBinaryString(-5);
-//		System.out.println("s:"+s);
-//		long value = Long.valueOf(s, 2);
-//		System.out.println(value);
+		/*String s = Integer.toBinaryString(-5);
+		System.out.println("s:"+s);
+		long value = Long.valueOf(s, 2);
+		System.out.println(value);
 		
 		String s = Long.toBinaryString(-5);
 		System.out.println("s:"+s+",temp:"+new BigInteger("123"));
 		BigInteger value = new BigInteger(s, 2);
-		System.out.println(value);
+		System.out.println(value);*/
+        Uint u = new Uint(-5);
+        System.err.println(u);
+
+
 	}
 }

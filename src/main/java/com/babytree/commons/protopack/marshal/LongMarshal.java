@@ -29,4 +29,8 @@ public class LongMarshal implements Marshallable {
 		return String.valueOf(data);
 	}
 
+    @Override
+    public Object getData() {
+        return data;
+    }
 }

@@ -29,4 +29,9 @@ public class UshortMarshal implements Marshallable {
 	public String toString() {
 		return String.valueOf(data);
 	}
+
+    @Override
+    public Object getData() {
+        return data;
+    }
 }
