@@ -11,52 +11,52 @@ import java.util.List;
  */
 public class Packet implements Marshallable{
 
-	protected Header header;
+	protected ProtoHeader ProtoHeader;
 
 	protected List<Marshallable> contents = new ArrayList<Marshallable>();
 
-	protected Unpack unpack;
+	protected Unpack unpack ;
 
 	protected Pack pack = new Pack();
 
 	public Packet(){}
 
-	public Packet(Header header){
-		this.header = header;
+	public Packet(ProtoHeader ProtoHeader){
+		this.ProtoHeader = ProtoHeader;
 	}
-	public Packet(Header header,Unpack unpack){
-		this.header = header;
+	public Packet(ProtoHeader ProtoHeader,Unpack unpack){
+		this.ProtoHeader = ProtoHeader;
 		this.unpack = unpack;
 	}
 
-	public Packet(Header header, Marshallable... contents){
-		this(header, Arrays.asList(contents));
+	public Packet(ProtoHeader ProtoHeader, Marshallable... contents){
+		this(ProtoHeader, Arrays.asList(contents));
 	}
 
-	public Packet(Header header, List<Marshallable> contents){
-		this.header = header;
+	public Packet(ProtoHeader ProtoHeader, List<Marshallable> contents){
+		this.ProtoHeader = ProtoHeader;
 		this.contents = contents;
 	}
 
-	public Packet(Header header, Unpack unpack, Marshallable... contents){
-		this(header, unpack, Arrays.asList(contents));
+	public Packet(ProtoHeader ProtoHeader, Unpack unpack, Marshallable... contents){
+		this(ProtoHeader, unpack, Arrays.asList(contents));
 	}
 
-	public Packet(Header header, Unpack unpack, List<Marshallable> contents){
-		this.header = header;
+	public Packet(ProtoHeader ProtoHeader, Unpack unpack, List<Marshallable> contents){
+		this.ProtoHeader = ProtoHeader;
 		this.unpack = unpack;
 		this.contents = contents;
 	}
 
-	public void marshalHeader(Pack pack){
-		if (header != null) {
-			header.marshal(pack);
+	public void marshalProtoHeader(Pack pack){
+		if (ProtoHeader != null) {
+			ProtoHeader.marshal(pack);
 		}
 	}
 
-	public void unmarshalHeader(Unpack unpack){
-		if (header != null) {
-			header.unmarshal(unpack);
+	public void unmarshalProtoHeader(Unpack unpack){
+		if (ProtoHeader != null) {
+			ProtoHeader.unmarshal(unpack);
 		}
 	}
 
@@ -81,12 +81,12 @@ public class Packet implements Marshallable{
 		}
 	}
 
-	public void marshalHeader(){
-		marshalHeader(pack);
+	public void marshalProtoHeader(){
+		marshalProtoHeader(pack);
 	}
 
-	public void unmarshalHeader(){
-		unmarshalHeader(unpack);
+	public void unmarshalProtoHeader(){
+		unmarshalProtoHeader(unpack);
 	}
 
 	public void unmarshalContent()
@@ -99,12 +99,12 @@ public class Packet implements Marshallable{
 		marshalContent(pack);
 	}
 
-	public Header getHeader() {
-		return header;
+	public ProtoHeader getProtoHeader() {
+		return ProtoHeader;
 	}
 
-	public void setHeader(Header header) {
-		this.header = header;
+	public void setProtoHeader(ProtoHeader ProtoHeader) {
+		this.ProtoHeader = ProtoHeader;
 	}
 
 	public List<Marshallable> getContents() {
@@ -140,6 +140,9 @@ public class Packet implements Marshallable{
 
 	public void marshal() {
 		marshal(pack);
+		int size = pack.size();
+		//将数据长度写入到包头的第二个字节
+		pack.replaceInt(4,size);
 	}
 
 	public void unmarshal() {
@@ -148,13 +151,13 @@ public class Packet implements Marshallable{
 
 	@Override
 	public void marshal(Pack pack) {
-		marshalHeader(pack);
+		marshalProtoHeader(pack);
 		marshalContent(pack);
 	}
 
 	@Override
 	public void unmarshal(Unpack unpack) {
-		unmarshalHeader(unpack);
+		unmarshalProtoHeader(unpack);
 		unmarshalContent(unpack);
 	}
 
@@ -164,7 +167,7 @@ public class Packet implements Marshallable{
 
 	@Override
 	public String toString() {
-		String str = super.toString()+ " packet header:" + header + " contents:" + contents;
+		String str = super.toString()+ " packet ProtoHeader:" + ProtoHeader + " contents:" + contents;
 		return str;
 	}
 

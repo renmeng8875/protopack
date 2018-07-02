@@ -335,7 +335,10 @@ public class Pack
 	}
 
 	public byte[] getBytes(){
-	    return  buffer.array();
+	    byte[] containerBytes = buffer.array();
+	    byte[] copyArray = new byte[size()];
+        System.arraycopy(containerBytes,0,copyArray,0,size());
+        return copyArray;
     }
 
 }
