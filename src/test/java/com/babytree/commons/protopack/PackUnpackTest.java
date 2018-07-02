@@ -24,10 +24,16 @@ public class PackUnpackTest {
         inputBean.setIntNum(3);
         inputBean.setLongNum(4);
         inputBean.setVarBin("Whoes your daddy?");
+
         InnerBean innerBean = new InnerBean();
         innerBean.setAge(18);
         innerBean.setName("renmeng");
         innerBean.setNum(30000);
+
+
+        //innerBean.setInnerBean(innerBean0);
+
+
         List<InnerBean> innerBeanList = new ArrayList<>();
         innerBeanList.add(innerBean);
         inputBean.setBeanList(innerBeanList);

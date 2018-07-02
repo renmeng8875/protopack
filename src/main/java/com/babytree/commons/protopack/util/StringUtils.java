@@ -9,4 +9,8 @@ public class StringUtils {
 		}
 		return sb.reverse().toString();
 	}
+
+    public static void main(String[] args) {
+        System.err.println(byteToBitString((byte)1));
+    }
 }

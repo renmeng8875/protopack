@@ -26,12 +26,14 @@ public class Pack
 	public Pack()
 	{
 		buffer = ByteBuffer.allocate(16);
+		//定死打包和解包都用小字节序
 		buffer.order(ByteOrder.LITTLE_ENDIAN);
 	}
 
 	public Pack(int size)
 	{
 		buffer = ByteBuffer.allocate(size);
+        //定死打包和解包都用小字节序
 		buffer.order(ByteOrder.LITTLE_ENDIAN);
 	}
 

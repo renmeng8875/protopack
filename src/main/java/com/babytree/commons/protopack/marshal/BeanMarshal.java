@@ -11,6 +11,7 @@ import com.babytree.commons.protopack.util.GenericsUtils;
 import com.babytree.commons.protopack.util.TypeVo;
 import com.babytree.commons.protopack.util.Uint;
 
+import java.beans.Transient;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.*;
@@ -504,11 +505,13 @@ public abstract class BeanMarshal implements Marshallable {
 		Field[] fields = classFields.get(vo.getClass());
 		if(fields == null){
 			Field[] tmpFields = vo.getClass().getDeclaredFields();
-			List<Field> mshFields = new ArrayList<Field>();
+			List<Field> mshFields = new ArrayList<>();
 			for (Field field : tmpFields) {
-				// boolean hasAnnotation = field.isAnnotationPresent(Transient.class); 
+			     //检查该属性是否Transient属性
+				 //boolean hasAnnotation = field.isAnnotationPresent(Transient.class);
 				 if(!Modifier.isTransient(field.getModifiers())){
-					 field.setAccessible(true);//取消检查访问控制，提高反射效率
+                     //取消检查访问控制，提高反射效率
+					 field.setAccessible(true);
 					 mshFields.add(field);
 				 }
 			}

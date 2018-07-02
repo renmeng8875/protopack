@@ -5,6 +5,8 @@ public class InnerBean{
     public InnerBean(){
 
     }
+
+
     private String name;
 
     private int age;

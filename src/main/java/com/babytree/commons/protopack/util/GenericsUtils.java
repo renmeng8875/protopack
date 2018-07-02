@@ -58,9 +58,8 @@ public class GenericsUtils {
 	/**
 	 * 通过反射,获得方法返回值泛型参数的实际类型. 如: public Map<String, Buyer> getNames(){}
 	 * 
-	 * @param Method
-	 *            method 方法
-	 * @param int index 泛型参数所在索引,从0开始.
+	 * @param method 方法
+	 * @param index 泛型参数所在索引,从0开始.
 	 * @return 泛型参数的实际类型, 如果没有实现ParameterizedType接口，即不支持泛型，所以直接返回
 	 *         <code>Object.class</code>
 	 */
